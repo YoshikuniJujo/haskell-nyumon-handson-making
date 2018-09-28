@@ -79,5 +79,5 @@ selfIntroduction4 = pageTitle "自己紹介" :| [
 	itext 4 "漢字直接入力(TUT-code)",
 	itext 4 "シェルはZsh",
 	itext 4 "キーボードはHHKB",
-	writeImage 0.35 0.65 240 97.5 "image/hhkb2_croped.png"
+	writeImage 0.25 0.65 256 104 "image/hhkb2_croped.png"
 	]
