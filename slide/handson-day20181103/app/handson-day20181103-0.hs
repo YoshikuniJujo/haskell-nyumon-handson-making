@@ -15,7 +15,8 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude,
 	selfIntroduction1, selfIntroduction2, selfIntroduction3,
-	selfIntroduction4
+	selfIntroduction4, selfIntroduction5, selfIntroduction6,
+	selfIntroduction7
 	]
 
 title :: Page
@@ -80,4 +81,27 @@ selfIntroduction4 = pageTitle "自己紹介" :| [
 	itext 4 "シェルはZsh",
 	itext 4 "キーボードはHHKB",
 	writeImage 0.25 0.65 256 104 "image/hhkb2_croped.png"
+	]
+
+selfIntroduction5 :: Page
+selfIntroduction5 = pageTitle "自己紹介" :| [
+	text "最近は、すこしだけ、コーヒーにこっている",
+	text "毎朝エスプレッソを抽出して",
+	itext 4 "カフェラテ(カプチーノ?)を飲んでいる",
+	writeImage 0.30 0.40 192 186 "image/cafelatte_croped.png"
+	]
+
+selfIntroduction6 :: Page
+selfIntroduction6 = pageTitle "自己紹介" :| [
+	text "愛用のグラインダーと",
+	itext 2 "エスプレッソマシン",
+	writeImage 0.50 0.19 189 276 "image/machine_croped.png"
+	]
+
+selfIntroduction7 :: Page
+selfIntroduction7 = pageTitle "自己紹介" :| [
+	text "フライパンで自家焙煎も",
+	writeImage 0.30 0.25 221.5 175 "image/coffeebeans_croped.png",
+	text "煎りムラがひどくて、下手くそだけど",
+	itext 4 "自分で焙煎したコーヒーはおいしい"
 	]
