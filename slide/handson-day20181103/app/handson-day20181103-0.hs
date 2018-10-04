@@ -42,19 +42,21 @@ selfIntroduction1 = pageTitle "自己紹介" :| [
 	itext 5 "群雄割拠だった時代(1980年代)",
 	text "* マイクロソフトとアスキーが提唱した",
 	itext 5 "パソコンのアーキテクチャ(1983)",
-	text "* 任天堂のファミコン(1983)に負けてしまう"
+	text "* 時代の波に乗れず消えていってしまう"
 	]
 
 selfIntroduction2 :: Page
 selfIntroduction2 = pageTitle "自己紹介" :| [
 	text "MSXにはROM上にBASICが内蔵されていた",
 	text "BASIC言語によるプログラミングは、つぎのような感じ",
+	text "",
 	itext 5 "10 REM 5つ数える(\"3\"だけ飛ばす)",
 	itext 5 "20 FOR I = 1 TO 5",
 	itext 5 "25 IF I = 3 THEN GOTO 40",
 	itext 5 "30 PRINT I",
 	itext 5 "40 NEXT",
 	itext 5 "RUN",
+	itext 5 "",
 	text "基本的にGOTO文を多用し",
 	itext 5 "行番号を指定して、そこに飛ぶ仕組み"
 	]
@@ -100,8 +102,11 @@ selfIntroduction6 = pageTitle "自己紹介" :| [
 
 selfIntroduction7 :: Page
 selfIntroduction7 = pageTitle "自己紹介" :| [
-	text "フライパンで自家焙煎も",
-	writeImage 0.30 0.25 221.5 175 "image/coffeebeans_croped.png",
-	text "煎りムラがひどくて、下手くそだけど",
-	itext 4 "自分で焙煎したコーヒーはおいしい"
+	text "焙煎用の網で自家焙煎も",
+	writeImage 0.30 0.25 271.1 151.1 "image/coffeebeans2_croped.png",
+	text "このときの豆はブラジル サンアントニオ ショコラ",
+	itext 4 "ナッツ系の香り、ほのかな甘味",
+	itext 4 "すっきりとした口当たり",
+	itext 4 "...らしい、「なんとなく、わかる」",
+	text "細かい味のちがいはわからないが「おいしい」"
 	]
