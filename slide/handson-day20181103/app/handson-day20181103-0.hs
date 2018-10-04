@@ -17,8 +17,11 @@ someSlide = title :| [
 	selfIntroduction1, selfIntroduction2, selfIntroduction3,
 	selfIntroduction4, selfIntroduction5, selfIntroduction6,
 	selfIntroduction7,
+	aboutHaskell0,
 	aboutHaskell1, aboutHaskell2, aboutHaskell3, aboutHaskell4,
-	aboutHaskell5
+	aboutHaskell5, aboutHaskell6, aboutHaskell7, aboutHaskell8,
+	aboutHaskell9,
+	aboutHandson1
 	]
 
 title :: Page
@@ -113,11 +116,21 @@ selfIntroduction7 = pageTitle "自己紹介" :| [
 	text "細かい味のちがいはわからないが「おいしい」"
 	]
 
-aboutHaskell1 :: Page
-aboutHaskell1 = pageTitle "Haskellとは" :| [
+aboutHaskell0 :: Page
+aboutHaskell0 = pageTitle "Haskellとは" :| [
 	text "今日は「Haskell入門ハンズオン!」ということで",
 	itext 4 "Haskellを学んでいく",
-	text "ところでHaskellとは何か、どんな言語なのか",
+	text "ざっくりとHaskellを紹介する",
+	text "実際に書くまえに、言語を紹介するのはむずかしい",
+	text "「Haskellは、すなおで、ふつう」",
+	text "このあとの「Haskellの紹介」に関しては",
+	itext 4 "これだけ覚えていただければいい",
+	text "ハンズオンの本編で、きちんと学ぶので"
+	]
+
+aboutHaskell1 :: Page
+aboutHaskell1 = pageTitle "Haskellとは" :| [
+	text "Haskellとは何か、どんな言語なのか",
 	text "僕に言わせれば",
 	itext 1 "「もっとも、すなおで、ふつうなプログラミング言語」",
 	text "たとえば",
@@ -174,8 +187,9 @@ aboutHaskell4 = pageTitle "Haskellとは" :| [
 
 aboutHaskell5 :: Page
 aboutHaskell5 = pageTitle "Haskellとは" :| [
-	text "書かれたコードのなかに「時間の流れ」が入りこむ",
-	itext 4 "「時間の流れ」によって状態が変化してしまう",
+	text "多くの言語では",
+	itext 2 "書かれたコードのなかに「時間の流れ」が入りこむ",
+	itext 2 "「時間の流れ」によって状態が変化してしまう",
 	text "この「状態変化」というものが保守を困難にする",
 	text "たとえば、つぎのようなC言語のコードがあったとする",
 	itext 4 "x = 123;",
@@ -184,4 +198,59 @@ aboutHaskell5 = pageTitle "Haskellとは" :| [
 	text "値xはsome_functionの実行で変化しているかもしれない",
 	text "yの値は126にはならない可能性がある",
 	text "これは「動く的をねらう」という作業になりやすい"
+	]
+
+aboutHaskell6 :: Page
+aboutHaskell6 = pageTitle "Haskellとは" :| [
+	text "マーズ・クライメイト・オービター",
+	writeImage 0.70 0.10 120 145 "image/mars_climate_orbiter_croped.png",
+	text "火星探査機",
+	text "火星上空140-150kmの軌道に乗るはずが",
+	text "高度57kmの軌道に乗ってしまったため炎上",
+	text "147億円の損失"
+	]
+
+aboutHaskell7 :: Page
+aboutHaskell7 = pageTitle "Haskellとは" :| [
+	text "原因は?",
+	text "単位の食いちがい",
+	itext 4 "地上から送信したデータはヤード・ポンド法",
+	itext 4 "機内の制御ではメートル法を使用",
+	text "Haskellは静的型付け言語",
+	text "型を適切に使用すれば、ふせげたかも",
+	itext 4 "data PoundForce = PF Double",
+	itext 4 "data Newton = Nt Double",
+	itext 4 "getPF :: IO PoundForce",
+	itext 4 "useNewton :: Newton -> IO ()",
+	text "このようにしておけばgetPFで取得した値を",
+	itext 4 "useNewtonで使用しようとしても型エラーになる"
+	]
+
+aboutHaskell8 :: Page
+aboutHaskell8 = pageTitle "Haskellとは" :| [
+	text "Haskellはコードのなかに暗黙の時間の流れがない",
+	itext 4 "暗黙の時間の流れはコードをごちゃごちゃにする",
+	text "静的型付けによって守られている",
+	itext 4 "(同時に多相型による柔軟性も持つ)",
+	text "",
+	text "=> 整理された形でコードを書くことができる",
+	text "=> コードの保守が楽になる"
+	]
+
+aboutHaskell9 :: Page
+aboutHaskell9 = pageTitle "Haskellの実際" :| [
+	text "Haskellって実際に使われてるの?",
+	text "使われてますよ",
+	itext 4 "* Facebook (SNS)",
+	itext 4 "* ASAHIネット (プロバイダ)",
+	itext 4 "* Tsuru Capital (高頻度取引)",
+	text "それぞれ",
+	itext 4 "* スパム対策",
+	itext 4 "* 認証サーバ",
+	itext 4 "* 全般",
+	text "といった用途で使われています"
+	]
+
+aboutHandson1 :: Page
+aboutHandson1 = pageTitle "このハンズオンについて" :| [
 	]
