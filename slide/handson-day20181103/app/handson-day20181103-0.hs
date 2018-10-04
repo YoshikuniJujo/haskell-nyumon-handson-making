@@ -16,7 +16,9 @@ someSlide = title :| [
 	prelude,
 	selfIntroduction1, selfIntroduction2, selfIntroduction3,
 	selfIntroduction4, selfIntroduction5, selfIntroduction6,
-	selfIntroduction7
+	selfIntroduction7,
+	aboutHaskell1, aboutHaskell2, aboutHaskell3, aboutHaskell4,
+	aboutHaskell5
 	]
 
 title :: Page
@@ -109,4 +111,77 @@ selfIntroduction7 = pageTitle "自己紹介" :| [
 	itext 4 "すっきりとした口当たり",
 	itext 4 "...らしい、「なんとなく、わかる」",
 	text "細かい味のちがいはわからないが「おいしい」"
+	]
+
+aboutHaskell1 :: Page
+aboutHaskell1 = pageTitle "Haskellとは" :| [
+	text "今日は「Haskell入門ハンズオン!」ということで",
+	itext 4 "Haskellを学んでいく",
+	text "ところでHaskellとは何か、どんな言語なのか",
+	text "僕に言わせれば",
+	itext 1 "「もっとも、すなおで、ふつうなプログラミング言語」",
+	text "たとえば",
+	itext 4 "x = 3",
+	itext 4 "...",
+	itext 4 "y = x + 9",
+	itext 4 "z = x * x + 2",
+	text "のようなとき、どのxも3で置き換えることができる",
+	text "ほかの多くの言語では「...」のところを",
+	itext 4 "じっくり読まないと、xの値を決定できない"
+	]
+
+aboutHaskell2 :: Page
+aboutHaskell2 = pageTitle "Haskellとは" :| [
+	text "たとえば関数をリストにいれて",
+	itext 4 "f1 x y = x + y; f2 x y = x - y",
+	itext 4 "fs = [f1, f2]",
+	itext 4 "z = (head fs) 3 4",
+	text "のようにもできる",
+	text "関数headでリストfsの先頭(f1)を取り出して",
+	itext 4 "それに対して引数3と4をあたえている",
+	text "関数も値とおなじようにリストへの出し入れができる",
+	text "リストに入れるときも、出して使うときも",
+	itext 4 "とくに特別な操作は必要ない"
+	]
+
+aboutHaskell3 :: Page
+aboutHaskell3 = pageTitle "Haskellとは" :| [
+	text "入出力に関しても同様だ",
+	itext 4 "io1 = putStrLn \"hello\"; io2 = putStrLn \"world\"",
+	itext 4 "ios = [io1, io2]",
+	itext 4 "main = head ios",
+	text "「putStrLn \"hello\"」にラベルmainをつけたということ",
+	text "mainを実行すると端末に\"hello\"と表示される",
+	text "",
+	text "つぎのような「すなおさ」がある",
+	itext 4 "* 1度、定義された値は変化しない",
+	itext 4 "* 関数も入出力も、リストへの出し入れが可能"
+	]
+
+aboutHaskell4 :: Page
+aboutHaskell4 = pageTitle "Haskellとは" :| [
+	text "プログラミングとは",
+	itext 4 "処理を組み立てていくこと",
+	text "Haskellでは処理を組み合わせるときの",
+	itext 4 "その組み合わせかたが、非常に「すなお」だ",
+	text "",
+	text "コードの上下で「時間の流れ」を表していない",
+	itext 4 "* Haskell以外の言語の多くはコードの流れで",
+	itext 8 "時間の流れを表現している",
+	itext 4 "* 結果として、動き続ける的をねらうことになる",
+	text "Haskellを使うと、コードを書くのも保守するのも、楽に"
+	]
+
+aboutHaskell5 :: Page
+aboutHaskell5 = pageTitle "Haskellとは" :| [
+	text "書かれたコードのなかに「時間の流れ」が入りこむ",
+	itext 4 "「時間の流れ」によって状態が変化してしまう",
+	text "この「状態変化」というものが保守を困難にする",
+	text "たとえば、つぎのようなC言語のコードがあったとする",
+	itext 4 "x = 123;",
+	itext 4 "some_function();",
+	itext 4 "y = x + 3;",
+	text "値xはsome_functionの実行で変化しているかもしれない",
+	text "yの値は126にはならない可能性がある",
+	text "これは「動く的をねらう」という作業になりやすい"
 	]
