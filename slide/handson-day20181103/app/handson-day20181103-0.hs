@@ -21,7 +21,7 @@ someSlide = title :| [
 	aboutHaskell1, aboutHaskell2, aboutHaskell3, aboutHaskell4,
 	aboutHaskell5, aboutHaskell6, aboutHaskell7, aboutHaskell8,
 	aboutHaskell9,
-	aboutHandson1
+	aboutHandson1, aboutHandson2
 	]
 
 title :: Page
@@ -253,4 +253,17 @@ aboutHaskell9 = pageTitle "Haskellの実際" :| [
 
 aboutHandson1 :: Page
 aboutHandson1 = pageTitle "このハンズオンについて" :| [
+	text "今日のハンズオンでは",
+	itext 4 "実際にHaskellのコードを動かしてみる",
+	text "はじめのうちは対話環境で",
+	itext 4 "式の打ち込みと結果の表示を試す",
+	text "あとのほうで、独立して動作する",
+	itext 4 "アプリケーションを作ってみる",
+	text "最後に自分達で考えたプログラムを",
+	itext 4 "作ってもらうことになる"
+	]
+
+aboutHandson2 :: Page
+aboutHandson2 = pageTitle "このハンズオンについて" :| [
+	text ""
 	]
