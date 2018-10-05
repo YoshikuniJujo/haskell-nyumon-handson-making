@@ -14,6 +14,7 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, value1, function1, function2, function3, sourceFile1,
+	recPre, rec1, rec2,
 	summary
 	]
 
@@ -101,13 +102,53 @@ sourceFile1 = pageTitle "ファイルから読み込み" :| [
 	itext 4 "g x y = x + y"
 	]
 
+recPre :: Page
+recPre = pageTitle "再帰関数とは" :| [
+	text "関数を定義するときに",
+	itext 4 "定義のなかにその関数自体が出てくる",
+	text "そのような関数を再帰関数と呼ぶ"
+	]
+
+rec1 :: Page
+rec1 = pageTitle "再帰関数の例" :| [
+	text "0からnまでの整数の和を計算する関数",
+	itext 4 "% vim rec.hs",
+	itext 4 "sum123 :: Integer -> Integer",
+	itext 4 "sum123 0 = 0",
+	itext 4 "sum123 n = sum123 (n - 1) + n",
+	text "対話環境で試してみよう",
+	itext 4 "> :load rec.hs",
+	itext 4 "> sum123 8",
+	itext 4 "36",
+	itext 4 "> sum123 100",
+	itext 4 "5050"
+	]
+
+rec2 :: Page
+rec2 = pageTitle "再帰関数の例" :| [
+	text "定義を再掲する",
+	itext 4 "sum123 0 = 0",
+	itext 4 "sum123 n = sum123 (n - 1) + n",
+	text "n = 3について、展開してみよう",
+	text "sum123 3",
+	itext 4 "=> sum123 2 + 3",
+	itext 4 "=> (sum123 1 + 2) + 3",
+	itext 4 "=> ((sum123 0 + 1) + 2) + 3",
+	itext 4 "=> ((0 + 1) + 2) + 3",
+	itext 4 "6",
+	itext 4 "(わかりやすさのため実際の評価とは変えている)"
+	]
+
 summary :: Page
 summary = pageTitle "まとめ" :| [
-	text "値、型、関数について学んだ",
+	text "値、型、関数、再帰関数について学んだ",
 	text "値には型がある",
 	text "型は文字型Char、整数型Integer、真偽値型Boolなど",
 	text "引数をとって返り値をかえすのが関数",
 	text "関数にも型がある",
 	itext 2 "[引数1の型] -> [引数2の型] -> ... -> [返り値の型]",
-	text "ファイルに定義した関数を読み込むには:loadコマンド"
+	text "ファイルに定義した関数を読み込むには:loadコマンド",
+	text "定義に自分自身を使うのが再帰関数",
+	itext 4 "例は0からnまでの和",
+	text "再帰関数を使えば「くりかえし」を表現できる"
 	]
