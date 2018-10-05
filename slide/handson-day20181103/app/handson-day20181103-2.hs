@@ -13,7 +13,8 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, tuple1, maybe1, maybe2, maybe3, maybe4
+	prelude, tuple1, maybe1, maybe2, maybe3, maybe4,
+	list1, list2, list3, list4, summary
 	]
 
 title :: Page
@@ -94,4 +95,60 @@ maybe4 = pageTitle "Maybe値" :| [
 
 list1 :: Page
 list1 = pageTitle "リスト" :| [
+	text "おなじ型の値がたくさん必要なとき",
+	itext 8 "リストを使う",
+	itext 4 "> [123, 456, 789]",
+	itext 4 "[123,456,789]"
+	]
+
+list2 :: Page
+list2 = pageTitle "リスト" :| [
+	text "リストを操作するにはパターンマッチと再帰を使う",
+	itext 4 "% vim list.hs",
+	itext 4 "sumAll :: [Integer] -> Integer",
+	itext 4 "sumAll [] = 0",
+	itext 4 "sumAll (n : ns) = n + sumAll ns",
+	text "リストは(n : ns)のようなパターンで",
+	itext 4 "(先頭の値 : 残りの値)のようにわけられる",
+	text "要素をもたないリストは[]で表わされる",
+	text "要素をもたないリストの総和は0",
+	text "先頭がnで残りがnsであるリストの総和は",
+	itext 4 "値nにリストnsの総和をたしたもの"
+	]
+
+list3 :: Page
+list3 = pageTitle "リスト" :| [
+	text "試してみる",
+	itext 4 "> :load list.hs",
+	itext 4 "> sumAll [5, 7, 9, 2]",
+	itext 4 "23",
+	itext 4 "> sumAll [123, 456, 789]",
+	itext 4 "1368",
+	itext 4 "> sumAll [2, 4, 5]",
+	itext 4 "11"
+	]
+
+list4 :: Page
+list4 = pageTitle "リスト" :| [
+	text "定義を再掲する",
+	itext 4 "sumAll [] = 0",
+	itext 4 "sumAll (n : ns) = n + sumAll ns",
+	text "展開してみよう",
+	itext 4 "sumAll [2, 4, 5]",
+	itext 4 "=> 2 + sumAll [4, 5]",
+	itext 4 "=> 2 + (4 + sumAll [5])",
+	itext 4 "=> 2 + (4 + (5 + sumAll []))",
+	itext 4 "=> 2 + (4 + (5 + 0))",
+	itext 4 "=> 11"
+	]
+
+summary :: Page
+summary = pageTitle "まとめ" :| [
+	text "Haskellで用意されているデータ構造を紹介した",
+	itext 4 "* タプル",
+	itext 4 "* Maybe値",
+	itext 4 "* リスト",
+	text "なかみを取り出すにはパターンマッチを使う",
+	text "リストのなかみをすべて利用するには",
+	itext 4 "再帰関数を利用する"
 	]
