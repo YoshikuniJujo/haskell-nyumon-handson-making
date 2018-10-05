@@ -13,7 +13,8 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, value1
+	prelude, value1, function1, function2, function3, sourceFile1,
+	summary
 	]
 
 title :: Page
@@ -31,8 +32,82 @@ prelude = pageTitle "対話環境" :| [
 	]
 
 value1 :: Page
-value1 = pageTitle "対話環境" :| [
+value1 = pageTitle "値と型" :| [
 	text "とりあえず対話環境に「値」を打ち込んでみよう",
 	itext 4 "> 123",
-	itext 4 "123"
+	itext 4 "123",
+	itext 4 "> 'c'",
+	itext 4 "'c'",
+	itext 4 "> True",
+	itext 4 "True",
+	text "値には「型」がある",
+	itext 4 "> :type 'c'",
+	itext 4 "'c' :: Char",
+	itext 4 "> :type True",
+	itext 4 "True :: Bool"
+	]
+
+function1 :: Page
+function1 = pageTitle "関数" :| [
+	text "関数は引数をとる",
+	text "引数をとった関数は値に評価される",
+	itext 4 "> :module Data.Char",
+	itext 4 "> toUpper 'c'",
+	itext 4 "'C'",
+	text "関数toUpperは引数を大文字にする関数",
+	text "モジュールData.Charから公開されている",
+	text "関数にも型がある",
+	itext 4 "> :type toUpper",
+	itext 4 "toUpper :: Char -> Char",
+	text "Char型の引数をとって、Char型の値をかえす",
+	text "関数の型は、引数と返り値の型を(->)でつないだもの"
+	]
+
+function2 :: Page
+function2 = pageTitle "関数" :| [
+	text "もうひとつの例",
+	itext 4 "> isUpper 'c'",
+	itext 4 "False",
+	text "関数isUpperは引数が大文字ならばTrueを",
+	itext 4 "そうでなければFalseをかえす",
+	text "型をみてみよう",
+	itext 4 "> :type isUpper",
+	itext 4 "isUpper :: Char -> Bool",
+	text "Char型の引数をとって、Bool型の値をかえす"
+	]
+
+function3 :: Page
+function3 = pageTitle "関数の定義" :| [
+	text "自分で関数を定義するには",
+	itext 4 "[関数名] [引数1] [引数2] ... = [式]",
+	text "実際に定義してみよう",
+	itext 4 "> f x y = x + y",
+	itext 4 "> f 3 4",
+	itext 4 "7"
+	]
+
+sourceFile1 :: Page
+sourceFile1 = pageTitle "ファイルから読み込み" :| [
+	text "関数をファイルから読み込むこともできる",
+	itext 4 "% vim simpleFun.hs",
+	itext 4 "g x y = x + y",
+	text "ファイルに定義した関数は:loadで読み込める",
+	itext 4 "> :load simpleFun.hs",
+	itext 4 "> g 3 4",
+	itext 4 "7",
+	text "関数には型宣言をつけておいたほうがいい",
+	itext 4 "% vim simpleFun.hs",
+	itext 4 "g :: Integer -> Integer -> Integer",
+	itext 4 "g x y = x + y"
+	]
+
+summary :: Page
+summary = pageTitle "まとめ" :| [
+	text "値、型、関数について学んだ",
+	text "値には型がある",
+	text "型は文字型Char、整数型Integer、真偽値型Boolなど",
+	text "引数をとって返り値をかえすのが関数",
+	text "関数にも型がある",
+	itext 2 "[引数1の型] -> [引数2の型] -> ... -> [返り値の型]",
+	text "ファイルに定義した関数を読み込むには:loadコマンド"
 	]
