@@ -14,6 +14,8 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, value1, function1, function2, function3, sourceFile1,
+	operator1, operator2,
+	guard1,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -100,6 +102,50 @@ sourceFile1 = pageTitle "ファイルから読み込み" :| [
 	itext 4 "% vim simpleFun.hs",
 	itext 4 "g :: Integer -> Integer -> Integer",
 	itext 4 "g x y = x + y"
+	]
+
+operator1 :: Page
+operator1 = pageTitle "演算子" :| [
+	text "Haskellでは関数と演算子のちがいは構文だけ",
+	text "()と``でたがいに変換できる",
+	itext 4 "> mod 15 4",
+	itext 4 "3",
+	itext 4 "> 15 `mod` 4",
+	itext 4 "3",
+	itext 4 "> 12 + 25",
+	itext 4 "37",
+	itext 4 "> (+) 12 25",
+	itext 4 "37"
+	]
+
+operator2 :: Page
+operator2 = pageTitle "演算子" :| [
+	text "演算子を関数に変換するとき",
+	itext 4 "前か後ろのどちらかの引数を",
+	itext 4 "あらかじめ適用しておくことができる",
+	text "これを演算子の部分適用という",
+	itext 4 "> (/ 5) 65",
+	itext 4 "13.0",
+	itext 4 "> (65 /) 5",
+	itext 4 "13.0",
+	text "(/ 5)は何かを5でわる関数になり",
+	itext 4 "(65 /)は65を何かでわる関数になる"
+	]
+
+guard1 :: Page
+guard1 = pageTitle "ガード" :| [
+	text "関数を定義するときなどに",
+	itext 4 "条件によって結果を変えることができる",
+	text "ガードという構文が使える",
+	itext 4 "%vim guard.hs",
+	itext 4 "div2 :: Integer -> Integer",
+	itext 4 "div2 n  | even n = n `div` 2",
+	itext 4 "        | otherwise = n",
+	text "ガードはつぎのような構文になる",
+	itext 4 "| (Bool値をかえす式) = (結果の式)",
+	text "ガードは関数定義のときに複数つけられる",
+	text "otherwiseはTrueということ",
+	text "つまり、「それ以外の場合」を受け入れる"
 	]
 
 recPre :: Page
