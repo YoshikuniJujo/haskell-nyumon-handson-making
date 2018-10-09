@@ -14,7 +14,8 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, length1, length2, map1, map2, map3, map4,
-	filter1, filter2
+	filter1, filter2,
+	summary
 	]
 
 title :: Page
@@ -134,5 +135,17 @@ filter2 = pageTitle "条件を満たす値だけを取り出す" :| [
 	itext 4 "myFilter _ [] = []",
 	itext 4 "myFilter p (x : xs)",
 	itext 4 "        | p x = x : myFilter p xs",
-	itext 4 "        | otherwise = myfilter p xs"
+	itext 4 "        | otherwise = myfilter p xs",
+	text "値xが条件pを満たすときだけ",
+	itext 4 "xが結果のリストに追加されている"
+	]
+
+summary :: Page
+summary = pageTitle "まとめ" :| [
+	text "リストをあつかう関数をみた",
+	itext 4 "* myLength",
+	itext 4 "* map",
+	itext 4 "* filter",
+	text "要素の型を問わない関数では",
+	itext 4 "型変数を使って型宣言をする"
 	]
