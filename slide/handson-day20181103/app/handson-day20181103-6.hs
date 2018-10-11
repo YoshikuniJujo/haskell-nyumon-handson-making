@@ -14,7 +14,7 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
-	do1, do2
+	do1, do2, do3
 	]
 
 title :: Page
@@ -89,4 +89,12 @@ do2 = pageTitle "do記法" :| [
 	itext 4 "        s <- getLine",
 	itext 4 "        putStrLn s",
 	text "のようになる"
+	]
+
+do3 :: Page
+do3 = pageTitle "do記法" :| [
+	text "今回は時間がないので",
+	itext 4 "このdo記法のかたちだけ覚えておこう",
+	text "そのうらがわに、明示的な演算子による結合があると",
+	itext 4 "知っておけばいい"
 	]
