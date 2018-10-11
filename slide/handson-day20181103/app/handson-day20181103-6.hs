@@ -14,7 +14,7 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
-	do1, do2, do3
+	do1, do2, do3, do4, do5
 	]
 
 title :: Page
@@ -97,4 +97,34 @@ do3 = pageTitle "do記法" :| [
 	itext 4 "このdo記法のかたちだけ覚えておこう",
 	text "そのうらがわに、明示的な演算子による結合があると",
 	itext 4 "知っておけばいい"
+	]
+
+do4 :: Page
+do4 = pageTitle "do記法" :| [
+	text "do記法で入出力処理を書いてみよう",
+	itext 4 "% vim do.hs",
+	itext 4 "io1 :: IO ()",
+	itext 4 "io1 = do",
+	itext 4 "        putStrLn \"hello\"",
+	itext 4 "        s <- getLine",
+	itext 4 "        putStrLn s",
+	text "IOモナドの型は、入力される値がなければ",
+	itext 4 "IO ()",
+	text "変数io1を、do記法によって組み立てた",
+	itext 4 "入出力を表す値で束縛した"
+	]
+
+do5 :: Page
+do5 = pageTitle "do記法" :| [
+	text "試してみる",
+	itext 4 "> :load do.hs",
+	itext 4 "> io1",
+	itext 4 "hello",
+	itext 4 "(適当に入力してエンター)world",
+	itext 4 "world"
+	]
+
+if1 :: Page
+if1 = pageTitle "分岐" :| [
+	text ""
 	]
