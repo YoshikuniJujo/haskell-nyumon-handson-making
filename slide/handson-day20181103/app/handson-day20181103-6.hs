@@ -14,7 +14,8 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
-	do1, do2, do3, do4, do5
+	do1, do2, do3, do4, do5,
+	stdio1, stdio2, stdio3, fileio1
 	]
 
 title :: Page
@@ -124,7 +125,58 @@ do5 = pageTitle "do記法" :| [
 	itext 4 "world"
 	]
 
+stdio1 :: Page
+stdio1 = pageTitle "標準入出力" :| [
+	text "いろいろな例を挙げる前に",
+	itext 4 "標準入出力への入出力について学ぶ",
+	text "標準入力はデフォルトではキーボードからの入力",
+	text "標準出力はデフォルトでは画面への出力になる",
+	text "このふたつは、すでに出てきたが",
+	itext 4 "もういちど確認する"
+	]
+
+stdio2 :: Page
+stdio2 = pageTitle "標準入出力" :| [
+	text "対話環境で試してみる",
+	itext 4 "> putStrLn \"hello\"",
+	itext 4 "hello",
+	itext 4 "> getLine",
+	itext 4 "(適当に入力)world",
+	itext 4 "\"world\"",
+	text "関数putStrLnは文字列を引数にとり",
+	itext 4 "その文字列を標準出力に出力する",
+	text "入出力getLineは標準入力から1行入力し",
+	itext 4 "それを「つぎの」入出力にわたす"
+	]
+
+stdio3 :: Page
+stdio3 = pageTitle "標準入出力" :| [
+	text "型をみてみよう",
+	itext 4 "> :type putStrLn",
+	itext 4 "putStrLn :: String -> IO ()",
+	itext 4 "> :type getLine",
+	itext 4 "getLine :: IO String",
+	text "つぎにわたす値がないとき、入出の型は",
+	itext 4 "IO ()",
+	text "つぎにわたすのがString型の値のとき",
+	itext 4 "IO String"
+	]
+
+fileio1 :: Page
+fileio1 = pageTitle "ファイル入出力" :| [
+	text "つぎに、ファイルへの入出力をみてみよう",
+	itext 4 "> writeFile \"tmp_hnh.txt\" \"Haskell Handson!\\n\"",
+	itext 4 "> readFile \"tmp_hnh.txt\"",
+	itext 4 "\"Haskell Handson!\\n\"",
+	text "writeFileは第1引数のファイルに",
+	itext 8 "第2引数の文字列を書き込む",
+	text "readFileは第1引数のファイルの内容を読み込む"
+	]
+
 if1 :: Page
 if1 = pageTitle "分岐" :| [
-	text ""
+	text "順接、分岐、反復の3つで",
+	itext 4 "すべてのアルゴリズムが記述可能",
+	text "「順接」は、「AのつぎにB」ということ、すでにみた",
+	text "つぎは「分岐」をみてみよう"
 	]
