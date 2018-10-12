@@ -15,7 +15,8 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
 	do1, do2, do3, do4, do5,
-	stdio1, stdio2, stdio3, fileio1
+	stdio1, stdio2, stdio3, fileio1,
+	if1, if2, if3
 	]
 
 title :: Page
@@ -178,5 +179,30 @@ if1 = pageTitle "分岐" :| [
 	text "順接、分岐、反復の3つで",
 	itext 4 "すべてのアルゴリズムが記述可能",
 	text "「順接」は、「AのつぎにB」ということ、すでにみた",
-	text "つぎは「分岐」をみてみよう"
+	text "つぎは「分岐」をみてみよう",
+	text "",
+	text "標準出力に表示するか",
+	itext 4 "ファイルに保存するかを選ぶ例"
+	]
+
+if2 :: Page
+if2 = pageTitle "分岐" :| [
+	itext (- 4) "つぎのようなコードを書く",
+	itext (- 4) "% vim stroheim.hs",
+	itext (- 4) "message :: String",
+	itext (- 4) "message = \"Haskellの記述力はァァァァ世界一ィィィィ\"",
+	itext (- 4) "",
+	itext (- 4) "stroheim :: IO ()",
+	itext (- 4) "stroheim = do",
+	itext (- 4) "        putStrLn \"ファイルに保存しますか?(Y/N)\"",
+	itext (- 4) "        s <- getLine",
+	itext (- 4) "        if s == \"Y\" || s == \"y\"",
+	itext (- 4) "                then writeFile \"number_one.txt\"",
+	itext (- 4) "                        (message ++ \"\\n\")",
+	itext (- 4) "                else putStrLn message"
+	]
+
+if3 :: Page
+if3 = pageTitle "分岐" :| [
+	text "if式を使って分岐を記述することができた"
 	]
