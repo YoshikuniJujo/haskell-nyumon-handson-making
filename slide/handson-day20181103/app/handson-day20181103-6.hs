@@ -16,6 +16,7 @@ someSlide = title :| [
 	prelude, procedure1, procedure2,
 	do1, do2, do3, do4, do5,
 	stdio1, stdio2, stdio3, fileio1,
+	currentTime1,
 	if1, if2, if3
 	]
 
@@ -174,6 +175,21 @@ fileio1 = pageTitle "ファイル入出力" :| [
 	text "readFileは第1引数のファイルの内容を読み込む"
 	]
 
+currentTime1 :: Page
+currentTime1 = pageTitle "現在時刻" :| [
+	text "現在の時刻を手得する",
+	text "時刻は入力値として手得される",
+	itext 4 "> :module Data.Time",
+	itext 4 "> getCurrentTime",
+	itext 4 "2018-10-15 05:54:10.471924992 UTC",
+	text ":moduleコマンドでモジュールData.Timeを",
+	itext 4 "対話環境に導入している",
+	text "入出力getCurrentTimeによって現在時刻が得られる",
+	text "入出力getCurrentTimeの型は、つぎのようになる",
+	itext 4 "> :type getCurrentTime",
+	itext 4 "getCurrentTime :: IO UTCTime"
+	]
+
 if1 :: Page
 if1 = pageTitle "分岐" :| [
 	text "順接、分岐、反復の3つで",
@@ -182,24 +198,25 @@ if1 = pageTitle "分岐" :| [
 	text "つぎは「分岐」をみてみよう",
 	text "",
 	text "標準出力に表示するか",
-	itext 4 "ファイルに保存するかを選ぶ例"
+	itext 4 "ファイルに保存するかを選ぶ例",
+	text "つぎのようなコードを書く"
 	]
 
 if2 :: Page
 if2 = pageTitle "分岐" :| [
-	itext (- 4) "つぎのようなコードを書く",
-	itext (- 4) "% vim stroheim.hs",
-	itext (- 4) "message :: String",
-	itext (- 4) "message = \"Haskellの記述力はァァァァ世界一ィィィィ\"",
+	itext (- 4) "% vim currentTime.hs",
+	itext (- 4) "import Data.Time",
 	itext (- 4) "",
-	itext (- 4) "stroheim :: IO ()",
-	itext (- 4) "stroheim = do",
+	itext (- 4) "currentTime :: IO ()",
+	itext (- 4) "currentTime = do",
+	itext (- 4) "        putStrLn \"現在時刻を取得します\"",
+	itext (- 4) "        now <- getCurrentTime",
 	itext (- 4) "        putStrLn \"ファイルに保存しますか?(Y/N)\"",
 	itext (- 4) "        s <- getLine",
 	itext (- 4) "        if s == \"Y\" || s == \"y\"",
-	itext (- 4) "                then writeFile \"number_one.txt\"",
-	itext (- 4) "                        (message ++ \"\\n\")",
-	itext (- 4) "                else putStrLn message"
+	itext (- 4) "                then writeFile \"currentTime.txt\"",
+	itext (- 4) "                        (show now ++ \"\\n\")",
+	itext (- 4) "                else putStrLn (show now)"
 	]
 
 if3 :: Page
