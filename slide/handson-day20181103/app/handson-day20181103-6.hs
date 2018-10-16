@@ -17,7 +17,9 @@ someSlide = title :| [
 	do1, do2, do3, do4, do5,
 	stdio1, stdio2, stdio3, fileio1,
 	currentTime1,
-	if1, if2, if3
+	if1, if2, if3,
+	iteration1, iteration2,
+	summary
 	]
 
 title :: Page
@@ -222,4 +224,47 @@ if2 = pageTitle "分岐" :| [
 if3 :: Page
 if3 = pageTitle "分岐" :| [
 	text "if式を使って分岐を記述することができた"
+	]
+
+iteration1 :: Page
+iteration1 = pageTitle "反復" :| [
+	text "反復、つまり「くりかえし」は再帰で書くことができる",
+	itext 4 "% vim sum.hs",
+	itext 4 "total :: Integer -> IO Integer",
+	itext 4 "total s = do",
+	itext 4 "        ln <- getLine",
+	itext 4 "        let     n = read ln",
+	itext 4 "        if n < 0",
+	itext 4 "                then return s",
+	itext 4 "                else total (s + n)",
+	text "入力値が0より小さければ",
+	itext 4 "sの値をかえし",
+	itext 4 "そうでなければ、s + nを引数に自身を呼び出す"
+	]
+
+iteration2 :: Page
+iteration2 = pageTitle "反復" :| [
+	text "試してみる",
+	itext 4 "> :load sum.hs",
+	itext 4 "> total 0",
+	itext 4 "3",
+	itext 4 "24",
+	itext 4 "11",
+	itext 4 "- 1",
+	itext 4 "38",
+	text "3, 24, 11を入力し、終了させるために",
+	itext 4 "- 1を入力した",
+	text "3 + 24 + 11 = 38なので、38が表示される"
+	]
+
+summary :: Page
+summary = pageTitle "まとめ" :| [
+	text "Haskellでは入出力や状態変化をともなう",
+	itext 4 "処理にはIOモナドという仕組みが使われる",
+	text "IOモナドはモナドの一種だが",
+	itext 4 "ここでは「モナド」については説明しない",
+	text "手続き型言語では「暗黙に」されていた「組み立て」が",
+	itext 4 "明示的な「演算子」によって、おこなわれる",
+	text "手続き型言語のような書きかたのできるdo記法がある",
+	text "順接、分岐、反復の実装をみた"
 	]
