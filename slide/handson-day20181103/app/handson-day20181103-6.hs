@@ -19,6 +19,7 @@ someSlide = title :| [
 	currentTime1,
 	if1, if2, if3,
 	iteration1, iteration2,
+	main1, main2,
 	summary
 	]
 
@@ -257,6 +258,33 @@ iteration2 = pageTitle "反復" :| [
 	text "3 + 24 + 11 = 38なので、38が表示される"
 	]
 
+main1 :: Page
+main1 = pageTitle "独立して実行できるプログラム" :| [
+	text "ここまで、対話環境で試してきた",
+	text "ここで、コンパイルして",
+	itext 4 "独立実行できる実行可能形式の作りかたを示す",
+	text "Haskellでは",
+	itext 4 "変数mainを束縛した入出力が実行される",
+	text "sum.hsに入出力mainを追加する",
+	itext 4 "% vim sum.hs",
+	itext 4 "main :: IO ()",
+	itext 4 "main = do",
+	itext 4 "        s <- total 0",
+	itext 4 "        print s"
+	]
+
+main2 :: Page
+main2 = pageTitle "独立して実行できるプログラム" :| [
+	text "つぎのようにしてコンパイルして、実行する",
+	itext 4 "% stack ghc -- -fno-warn-tabs sum.hs -o sum",
+	itext 4 "% ./sum",
+	itext 4 "3",
+	itext 4 "24",
+	itext 4 "11",
+	itext 4 "-1",
+	itext 4 "38"
+	]
+
 summary :: Page
 summary = pageTitle "まとめ" :| [
 	text "Haskellでは入出力や状態変化をともなう",
@@ -266,5 +294,7 @@ summary = pageTitle "まとめ" :| [
 	text "手続き型言語では「暗黙に」されていた「組み立て」が",
 	itext 4 "明示的な「演算子」によって、おこなわれる",
 	text "手続き型言語のような書きかたのできるdo記法がある",
-	text "順接、分岐、反復の実装をみた"
+	text "順接、分岐、反復の実装をみた",
+	text "Haskellでは、コンパイルされた実行可能形式は",
+	itext 4 "変数mainを束縛した入出力を実行する"
 	]

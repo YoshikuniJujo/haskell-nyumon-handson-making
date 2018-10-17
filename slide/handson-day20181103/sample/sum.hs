@@ -5,3 +5,8 @@ total s = do
 	if n < 0
 		then return s
 		else total (s + n)
+
+main :: IO ()
+main = do
+	s <- total 0
+	print s
