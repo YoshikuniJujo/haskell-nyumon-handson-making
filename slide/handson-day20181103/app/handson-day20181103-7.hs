@@ -15,7 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, specification1,
 	new1, new2, import1, import2,
-	adt1
+	adt1, adt2, adt3
 	]
 
 title :: Page
@@ -102,5 +102,37 @@ adt1 = pageTitle "型Quiz" :| [
 	text "対話環境で試してみる",
 	itext 4 "% stack ghci",
 	itext 4 "> 12 :+: 5",
-	itext 4 "12 :+: 5"
+	itext 4 "12 :+: 5",
+	text "型Quizをランダムに出題するために",
+	itext 8 "クラスRandomのインスタンスにする"
+	]
+
+adt2 :: Page
+adt2 = pageTitle "ランダム" :| [
+	itext (- 4) "instance Random Quiz where",
+	itext (- 4) "        randomR = undefined",
+	itext (- 4) "        random g = let",
+	itext (- 4) "                (a, g') = randomR (0, 100) g",
+	itext (- 4) "                (b, g'') = randomR (0, 100) g'",
+	itext (- 4) "                (o, g''') = randomR (0, 2) g''",
+	itext (- 4) "                q = case o :: Integer of",
+	itext (- 4) "                        0 -> a :+: b",
+	itext (- 4) "                        1 -> a :-: b",
+	itext (- 4) "                        2 -> (a `mod` 10) :*: (b `mod` 10)",
+	itext (- 4) "                        _ -> error \"never occur\" in",
+	itext (- 4) "                (q, g''')"
+	]
+
+adt3 :: Page
+adt3 = pageTitle "ランダム" :| [
+	text "randomRは最小値と最大値を指定することで",
+	itext 4 "特定の範囲内でのランダム値を生成する関数",
+	text "Quiz型では定義されない",
+	text "ここでは値undefinedで束縛してある",
+	text "0から100までのランダム値をふたつ(a, b)と",
+	itext 4 "0から2までのランダム値をひとつ(o)用意",
+	text "case式でoの値によって演算を選んでいる",
+	text "かけ算のときは",
+	itext 4 "10の剰余をとることで0から9までの値にしている",
+	text "最後に結果の値と「新しい乱数の種」をペアにしてかえす"
 	]
