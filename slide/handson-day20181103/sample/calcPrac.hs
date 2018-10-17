@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -Wall -fno-warn-tabs #-}
 
+import System.IO
 import System.Random
 
 data Quiz
@@ -31,15 +32,23 @@ answer (a :-: b) = a - b
 answer (a :*: b) = a * b
 
 main :: IO ()
-main = quiz 10
+main = do
+	p <- quiz 10 0
+	putStrLn $ show p ++ "/10"
 
-quiz :: Integer -> IO ()
-quiz n	| n < 1 = return ()
-	| otherwise = quiz1 >> quiz (n - 1)
+quiz :: Integer -> Integer -> IO Integer
+quiz n p
+	| n < 1 = return p
+	| otherwise = do
+		r <- quiz1
+		quiz (n - 1) (if r then p + 1 else p)
 
-quiz1 :: IO ()
+quiz1 :: IO Bool
 quiz1 = do
 	q <- randomIO
 	putStr $ showQuiz q
+	hFlush stdout
 	a <- getLine
-	putStrLn $ if read a == answer q then "正解!!" else "残念..."
+	let	r = read a == answer q
+	putStrLn $ if r then "正解!!" else "残念..."
+	return r
