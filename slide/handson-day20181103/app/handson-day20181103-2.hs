@@ -14,7 +14,9 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, tuple1, maybe1, maybe2, maybe3, maybe4,
-	list1, list2, list3, list4, summary
+	list1, list2, list3, list4,
+	case1, case2,
+	summary
 	]
 
 title :: Page
@@ -142,6 +144,34 @@ list4 = pageTitle "リスト" :| [
 	itext 4 "=> 11"
 	]
 
+case1 :: Page
+case1 = pageTitle "case式" :| [
+	text "パターンマッチを関数定義ではなく",
+	itext 8 "式のなかに書くにはcase式を使う",
+	text "% vim case.hs",
+	itext 4 "import Data.Char",
+	itext 4 "",
+	itext 4 "checkAnswer :: Char -> Maybe Bool",
+	itext 4 "checkAnswer c = case toLower c of",
+	itext 4 "        'y' -> Just True",
+	itext 4 "        'n' -> Just False",
+	itext 4 "        _ -> Nothing",
+	text "文字cをtoLowerで小文字化したものに対して",
+	itext 4 "パターンマッチをおこなっている"
+	]
+
+case2 :: Page
+case2 = pageTitle "case式" :| [
+	text "試してみる",
+	itext 4 "> :load case.hs",
+	itext 4 "> checkAnswer 'y'",
+	itext 4 "Just True",
+	itext 4 "> checkAnswer 'N'",
+	itext 4 "Just False",
+	itext 4 "> checkAnswer 'p'",
+	itext 4 "Nothing"
+	]
+
 summary :: Page
 summary = pageTitle "まとめ" :| [
 	text "Haskellで用意されているデータ構造を紹介した",
@@ -150,5 +180,7 @@ summary = pageTitle "まとめ" :| [
 	itext 4 "* リスト",
 	text "なかみを取り出すにはパターンマッチを使う",
 	text "リストのなかみをすべて利用するには",
-	itext 4 "再帰関数を利用する"
+	itext 4 "再帰関数を利用する",
+	text "パターンマッチを「式のなか」でするには",
+	itext 4 "case式を使う"
 	]
