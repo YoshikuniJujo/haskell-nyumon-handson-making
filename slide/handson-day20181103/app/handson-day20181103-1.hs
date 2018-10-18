@@ -17,7 +17,7 @@ someSlide = title :| [
 	function1, function2, function3, sourceFile1,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
-	guard1, eq1, if1,
+	guard1, eq1, if1, let1,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -234,6 +234,13 @@ if1 = pageTitle "if式" :| [
 	itext 4 "\"good\"",
 	itext 4 "> if 3 >= 15 then \"foo\" else \"bar\"",
 	itext 4 "\"bar\""
+	]
+
+let1 :: Page
+let1 = pageTitle "let式" :| [
+	text "局所的に変数を束縛することができる",
+	itext 4 "> let x = 8 in x + 5",
+	itext 4 "13"
 	]
 
 recPre :: Page
