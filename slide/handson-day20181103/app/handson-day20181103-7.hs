@@ -16,7 +16,8 @@ someSlide = title :| [
 	prelude, specification1,
 	new1, new2, import1, import2,
 	adt1, adt2, adt3, adt4, show1, show2, answer1, answer2,
-	single1, single2, single3, multi1, multi2
+	single1, single2, single3, multi1, multi2, main1, build1,
+	summary
 	]
 
 title :: Page
@@ -270,4 +271,42 @@ multi2 = pageTitle "問題を、複数出題" :| [
 	itext 4 "6 * 0 = 123",
 	itext 4 "残念...",
 	itext 4 "2"
+	]
+
+main1 :: Page
+main1 = pageTitle "入出力main" :| [
+	text "入出力mainを定義する",
+	itext 4 "% vim app/Main.hs",
+	itext 4 "main :: IO ()",
+	itext 4 "main = do",
+	itext 4 "        p <- quiz 10 0",
+	itext 4 "        putStrLn $ show p ++ \"/10\"",
+	text "関数quizに引数として「10問」と「得点の初期値0」とを",
+	itext 4 "あたえて実行し、結果の得点で変数pを束縛",
+	text "得点pを表示",
+	text "",
+	text "はじめに仮に書いておいたmainを削除する"
+	]
+
+build1 :: Page
+build1 = pageTitle "ビルド、実行" :| [
+	text "ビルドして、実行してみる",
+	itext 4 "% stack build",
+	itext 4 "% stack exec calc-quiz-exe",
+	itext 4 "1 * 0 = 0",
+	itext 4 "正解!!",
+	itext 4 "17 - 61 = -44",
+	itext 4 "正解!!",
+	itext 4 "34 - 43 = 123",
+	itext 4 "残念...",
+	itext 4 "(中略)",
+	itext 4 "3 - 65 = -62",
+	itext 4 "正解!!",
+	itext 4 "8/10"
+	]
+
+summary :: Page
+summary = pageTitle "まとめ" :| [
+	text "Stackを使って、新規プロジェクトを作成した",
+	text "簡単な計算問題を出題する例を作った"
 	]

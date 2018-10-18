@@ -5,9 +5,6 @@ module Main where
 import System.IO
 import System.Random
 
-main :: IO ()
-main = putStrLn "Love Haskell"
-
 data Quiz
 	= Integer :+: Integer
 	| Integer :-: Integer
@@ -53,3 +50,8 @@ quiz n p
 	| otherwise = do
 		r <- quiz1
 		quiz (n - 1) (if r then p + 1 else p)
+
+main :: IO ()
+main = do
+	p <- quiz 10 0
+	putStrLn $ show p ++ "/10"
