@@ -17,7 +17,7 @@ someSlide = title :| [
 	function1, function2, function3, sourceFile1,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
-	guard1,
+	guard1, eq1, if1,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -206,7 +206,34 @@ guard1 = pageTitle "ガード" :| [
 	itext 4 "| (Bool値をかえす式) = (結果の式)",
 	text "ガードは関数定義のときに複数つけられる",
 	text "otherwiseはTrueということ",
-	text "つまり、「それ以外の場合」を受け入れる"
+	text "つまり、「それ以外の場合」を受け入れる",
+	text "関数evenは引数が偶数のときTrueをかえす"
+	]
+
+eq1 :: Page
+eq1 = pageTitle "Bool値をかえす関数" :| [
+	text "Bool値をかえす関数を述語とよぶ",
+	itext 4 "> 12 == 12",
+	itext 4 "True",
+	itext 4 "> 3 == 9",
+	itext 4 "False",
+	itext 4 "> 3 < 15",
+	itext 4 "True",
+	itext 4 "> 3 >= 15",
+	itext 4 "False",
+	text "いくつかの述語をみた"
+	]
+
+if1 :: Page
+if1 = pageTitle "if式" :| [
+	text "真偽値によって処理を分岐させるには",
+	itext 4 "ガードが使える",
+	text "やっていることはおなじだが",
+	itext 8 "構文的に異なる特徴をもつのがif式",
+	itext 4 "> if 12 == 12 then \"good\" else \"bad\"",
+	itext 4 "\"good\"",
+	itext 4 "> if 3 >= 15 then \"foo\" else \"bar\"",
+	itext 4 "\"bar\""
 	]
 
 recPre :: Page
