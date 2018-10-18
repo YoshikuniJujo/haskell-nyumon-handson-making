@@ -36,3 +36,20 @@ answer :: Quiz -> Integer
 answer (a :+: b) = a + b
 answer (a :-: b) = a - b
 answer (a :*: b) = a * b
+
+quiz1 :: IO Bool
+quiz1 = do
+	q <- randomIO
+	putStr $ showQuiz q
+	hFlush stdout
+	a <- getLine
+	let	r = read a == answer q
+	putStrLn $ if r then "正解!!" else "残念..."
+	return r
+
+quiz :: Integer -> Integer -> IO Integer
+quiz n p
+	| n < 1 = return p
+	| otherwise = do
+		r <- quiz1
+		quiz (n - 1) (if r then p + 1 else p)

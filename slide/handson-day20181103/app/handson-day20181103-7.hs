@@ -15,7 +15,8 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, specification1,
 	new1, new2, import1, import2,
-	adt1, adt2, adt3, adt4, show1, show2, answer1, answer2
+	adt1, adt2, adt3, adt4, show1, show2, answer1, answer2,
+	single1, single2, single3, multi1, multi2
 	]
 
 title :: Page
@@ -195,9 +196,78 @@ answer2 = pageTitle "答えの計算" :| [
 	itext 4 "> randomIO :: IO Quiz",
 	itext 4 "88 :-: 96",
 	itext 4 "> answer it",
-	itext 4 "-8",
-	itext 4 "> randomIO :: IO Quiz",
-	itext 4 "53 :-: 43",
-	itext 4 "> answer it",
-	itext 4 "10"
+	itext 4 "-8"
+	]
+
+single1 :: Page
+single1 = pageTitle "問題を、ひとつ出題" :| [
+	text "問題を、ひとつ出題する",
+	itext 0 "% vim app/Main.hs",
+	itext 0 "quiz1 :: IO Bool",
+	itext 0 "quiz1 = do",
+	itext 0 "        q <- randomIO",
+	itext 0 "        putStr $ showQuiz q",
+	itext 0 "        hFlush stdout",
+	itext 0 "        a <- getLine",
+	itext 0 "        let     r = read a == answer q",
+	itext 0 "        putStrLn $ if r then \"正解!!\" else \"残念...\"",
+	itext 0 "        return r"
+	]
+
+single2 :: Page
+single2 = pageTitle "問題を、ひとつ出題" :| [
+	text "randomIOでランダムな問題を作成し",
+	itext 4 "それで変数qを束縛",
+	text "showQuizで文字列化して表示",
+	text "標準出力のバッファをフラッシュする",
+	text "標準入力から1行入力",
+	text "「正答かどうか(read a == answer q)」で",
+	itext 4 "変数rを束縛",
+	text "それぞれについて「正解!!」「残念...」を表示",
+	text "「正答かどうか」をつぎの入出力にわたす"
+	]
+
+single3 :: Page
+single3 = pageTitle "問題を、ひとつ出題" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> quiz1",
+	itext 4 "58 - 91 = -33",
+	itext 4 "正解!!",
+	itext 4 "True",
+	itext 4 "> quiz1",
+	itext 4 "83 - 9 = 123",
+	itext 4 "残念...",
+	itext 4 "False"
+	]
+
+multi1 :: Page
+multi1 = pageTitle "問題を、複数出題" :| [
+	text "問題を、複数出題して、結果をかえす",
+	itext 0 "% vim app/Main.hs",
+	itext 0 "quiz :: Integer -> Integer -> IO Integer",
+	itext 0 "quiz n p",
+	itext 0 "        | n < 1 = return p",
+	itext 0 "        | otherwise = do",
+	itext 0 "                r <- quiz1",
+	itext 0 "                quiz (n - 1) (if r then p + 1 else p)",
+	text "引数nは出題する問題数を示す",
+	itext 4 "再帰的に呼び出されるたびに、1ずつ減少",
+	itext 4 "1より小さくなったら終了",
+	text "引数pは得点。正解なら1増やし、まちがいならそのまま",
+	itext 4 "nが1より小さくなった時点で、pの値がかえされる"
+	]
+
+multi2 :: Page
+multi2 = pageTitle "問題を、複数出題" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> quiz 3 0",
+	itext 4 "46 - 90 = -44",
+	itext 4 "正解!!",
+	itext 4 "87 + 48 = 135",
+	itext 4 "正解!!",
+	itext 4 "6 * 0 = 123",
+	itext 4 "残念...",
+	itext 4 "2"
 	]
