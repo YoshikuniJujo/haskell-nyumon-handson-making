@@ -15,6 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, value1, arithmetic1, it1,
 	function1, function2, function3, sourceFile1,
+	lambda1, lambda2, lambda3,
 	operator1, operator2,
 	guard1,
 	recPre, rec1, rec2,
@@ -130,6 +131,38 @@ sourceFile1 = pageTitle "ファイルから読み込み" :| [
 	itext 4 "% vim simpleFun.hs",
 	itext 4 "g :: Integer -> Integer -> Integer",
 	itext 4 "g x y = x + y"
+	]
+
+lambda1 :: Page
+lambda1 = pageTitle "関数リテラル" :| [
+	text "3をたす関数を考える",
+	itext 4 "> add3 n = n + 3",
+	itext 4 "> add3 8",
+	itext 4 "11",
+	text "「3をたす関数」が変数add3を束縛している",
+	text "その「3をたす関数」そのものを表すには",
+	itext 4 "\\n -> n + 3",
+	text "つぎのように書ける",
+	itext 4 "> add3 = \\n -> n + 3",
+	itext 4 "> add3 8",
+	itext 4 "11"
+	]
+
+lambda2 :: Page
+lambda2 = pageTitle "関数リテラル" :| [
+	text "一般的に、関数リテラルはつぎのように書ける",
+	itext 4 "\\引数1 引数2 ... -> 式",
+	text "つぎのふたつの定義は、おなじことだ",
+	itext 4 "関数名 引数1 引数2 ... = 式",
+	itext 4 "関数名 = \\引数1 引数2 ... -> 式",
+	text "うえのかたちは、したのかたちの構文糖と考えられる"
+	]
+
+lambda3 :: Page
+lambda3 = pageTitle "関数リテラル" :| [
+	text "関数リテラルは変数を束縛せずに使える",
+	itext 4 "> (\\n -> n + 3) 8",
+	itext 4 "11"
 	]
 
 operator1 :: Page
