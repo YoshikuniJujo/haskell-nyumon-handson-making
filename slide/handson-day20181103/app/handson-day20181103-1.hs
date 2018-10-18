@@ -13,7 +13,8 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, value1, function1, function2, function3, sourceFile1,
+	prelude, value1, arithmetic1, it1,
+	function1, function2, function3, sourceFile1,
 	operator1, operator2,
 	guard1,
 	recPre, rec1, rec2,
@@ -48,6 +49,33 @@ value1 = pageTitle "値と型" :| [
 	itext 4 "'c' :: Char",
 	itext 4 "> :type True",
 	itext 4 "True :: Bool"
+	]
+
+arithmetic1 :: Page
+arithmetic1 = pageTitle "四則演算" :| [
+	text "四則演算もできる",
+	itext 4 "> 3 + 5",
+	itext 4 "8",
+	itext 4 "> 12 - 7",
+	itext 4 "5",
+	itext 4 "> 3 * 12",
+	itext 4 "36",
+	itext 4 "> 38 `div` 4",
+	itext 4 "9",
+	itext 4 "> 38 / 4",
+	itext 4 "9.5",
+	text "整数のわり算と実数のわり算とは",
+	itext 4 "意味がちがうので別になっている"
+	]
+
+it1 :: Page
+it1 = pageTitle "直前の結果を使う" :| [
+	text "対話環境では直前の結果を",
+	itext 8 "変数itによって再利用できる",
+	itext 4 "> 12345 * 67890",
+	itext 4 "838102050",
+	itext 4 "> it * 5",
+	itext 4 "4190510250"
 	]
 
 function1 :: Page
