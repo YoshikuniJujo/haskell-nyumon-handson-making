@@ -15,7 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, specification1,
 	new1, new2, import1, import2,
-	adt1, adt2, adt3
+	adt1, adt2, adt3, adt4, show1, show2
 	]
 
 title :: Page
@@ -135,4 +135,40 @@ adt3 = pageTitle "ランダム" :| [
 	text "かけ算のときは",
 	itext 4 "10の剰余をとることで0から9までの値にしている",
 	text "最後に結果の値と「新しい乱数の種」をペアにしてかえす"
+	]
+
+adt4 :: Page
+adt4 = pageTitle "ランダム" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "58 :-: 23",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "63 :+: 96",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "17 :-: 44",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "4 :*: 0"
+	]
+
+show1 :: Page
+show1 = pageTitle "問題の表示" :| [
+	text "問題を文字列に変換する関数",
+	itext (- 4) "% vim app/Main.hs",
+	itext (- 4) "showQuiz :: Quiz -> String",
+	itext (- 4) "showQuiz (a :+: b) = show a ++ \" + \" ++ show b ++ \" = \"",
+	itext (- 4) "showQuiz (a :-: b) = show a ++ \" - \" ++ show b ++ \" = \"",
+	itext (- 4) "showQuiz (a :*: b) = show a ++ \" * \" ++ show b ++ \" = \"",
+	text "それぞれの値について",
+	itext 4 "それぞれの文字列を組み立てている"
+	]
+
+show2 :: Page
+show2 = pageTitle "問題の表示" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "9 :*: 6",
+	itext 4 "> showQuiz it",
+	itext 4 "\"9 * 6 = \""
 	]

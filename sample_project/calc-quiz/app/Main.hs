@@ -26,3 +26,8 @@ instance Random Quiz where
 			2 -> (a `mod` 10) :*: (b `mod` 10)
 			_ -> error "never occur" in
 		(q, g''')
+
+showQuiz :: Quiz -> String
+showQuiz (a :+: b) = show a ++ " + " ++ show b ++ " = "
+showQuiz (a :-: b) = show a ++ " - " ++ show b ++ " = "
+showQuiz (a :*: b) = show a ++ " * " ++ show b ++ " = "
