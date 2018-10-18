@@ -31,3 +31,8 @@ showQuiz :: Quiz -> String
 showQuiz (a :+: b) = show a ++ " + " ++ show b ++ " = "
 showQuiz (a :-: b) = show a ++ " - " ++ show b ++ " = "
 showQuiz (a :*: b) = show a ++ " * " ++ show b ++ " = "
+
+answer :: Quiz -> Integer
+answer (a :+: b) = a + b
+answer (a :-: b) = a - b
+answer (a :*: b) = a * b

@@ -15,7 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, specification1,
 	new1, new2, import1, import2,
-	adt1, adt2, adt3, adt4, show1, show2
+	adt1, adt2, adt3, adt4, show1, show2, answer1, answer2
 	]
 
 title :: Page
@@ -171,4 +171,33 @@ show2 = pageTitle "問題の表示" :| [
 	itext 4 "9 :*: 6",
 	itext 4 "> showQuiz it",
 	itext 4 "\"9 * 6 = \""
+	]
+
+answer1 :: Page
+answer1 = pageTitle "答えの計算" :| [
+	text "答えを計算する",
+	itext 4 "% vim app/Main.hs",
+	itext 4 "answer :: Quiz -> Integer",
+	itext 4 "answer (a :+: b) = a + b",
+	itext 4 "answer (a :-: b) = a - b",
+	itext 4 "answer (a :*: b) = a * b",
+	text "それぞれの計算をしている"
+	]
+
+answer2 :: Page
+answer2 = pageTitle "答えの計算" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "49 :+: 69",
+	itext 4 "> answer it",
+	itext 4 "118",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "88 :-: 96",
+	itext 4 "> answer it",
+	itext 4 "-8",
+	itext 4 "> randomIO :: IO Quiz",
+	itext 4 "53 :-: 43",
+	itext 4 "> answer it",
+	itext 4 "10"
 	]
