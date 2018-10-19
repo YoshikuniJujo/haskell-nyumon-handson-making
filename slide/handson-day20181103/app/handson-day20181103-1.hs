@@ -17,7 +17,7 @@ someSlide = title :| [
 	function1, function2, function3, sourceFile1,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
-	guard1, eq1, if1, let1,
+	guard1, eq1, if1, let1, apply1, apply2,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -258,6 +258,33 @@ let1 = pageTitle "let式" :| [
 	text "局所的に変数を束縛することができる",
 	itext 4 "> let x = 8 in x + 5",
 	itext 4 "13"
+	]
+
+apply1 :: Page
+apply1 = pageTitle "関数適用演算子" :| [
+	text "Haskellには関数を適用する演算子($)がある",
+	itext 4 "> :module Data.Char",
+	itext 4 "> toUpper 'x'",
+	itext 4 "'X'",
+	itext 4 "> toUpper $ 'x'",
+	itext 4 "'X'",
+	text "「いったい何の意味が?!!!」"
+	]
+
+apply2 :: Page
+apply2 = pageTitle "関数適用演算子" :| [
+	text "ひとつには「結合力」がある",
+	text "演算子($)は結合力が最弱で右結合なので",
+	itext 4 "f $ ...",
+	itext 2 "のように書かれていたとき",
+	itext 4 "...の部分がひとかたまりで",
+	itext 4 "その全体に関数fを適用するということが",
+	itext 4 "すぐにわかる",
+	text "試してみよう",
+	itext 4 "> negate 3 + 5",
+	itext 4 "2",
+	itext 4 "> negate $ 3 + 5",
+	itext 4 "-8"
 	]
 
 recPre :: Page
