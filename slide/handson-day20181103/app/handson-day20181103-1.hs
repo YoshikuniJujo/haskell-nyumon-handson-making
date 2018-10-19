@@ -13,7 +13,7 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, value1, arithmetic1, it1,
+	prelude, value1, arithmetic1, it1, bind1,
 	function1, function2, function3, sourceFile1,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
@@ -77,6 +77,23 @@ it1 = pageTitle "直前の結果を使う" :| [
 	itext 4 "838102050",
 	itext 4 "> it * 5",
 	itext 4 "4190510250"
+	]
+
+bind1 :: Page
+bind1 = pageTitle "変数を束縛する" :| [
+	text "変数it以外も明示的に書けば、使える",
+	itext 4 "> x = 123",
+	itext 4 "> x * 2",
+	itext 4 "246",
+	itext 4 "> name = \"taro\"",
+	itext 4 "> name",
+	itext 4 "\"taro\"",
+	text "変数に値をわりあてることを、つぎのようにいう",
+	itext 4 "[値]が[変数]を束縛する",
+	text "ほかの言語を使える人なら",
+	itext 4 "[値]を[変数]に代入する",
+	itext 2 "の「代入」を、関数型では「束縛」と",
+	itext 4 "言い換えると考えれば(ここでは)いい"
 	]
 
 function1 :: Page
