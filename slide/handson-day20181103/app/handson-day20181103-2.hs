@@ -15,6 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, tuple1, maybe1, maybe2, maybe3, maybe4,
 	list1, list2, list3, list4,
+	string1,
 	case1, case2,
 	summary
 	]
@@ -142,6 +143,20 @@ list4 = pageTitle "リスト" :| [
 	itext 4 "=> 2 + (4 + (5 + sumAll []))",
 	itext 4 "=> 2 + (4 + (5 + 0))",
 	itext 4 "=> 11"
+	]
+
+string1 :: Page
+string1 = pageTitle "文字列" :| [
+	text "Haskellでは、デフォルトの文字列は文字のリスト",
+	text "文字列は、つぎのように表記される",
+	itext 4 "\"foobar\"",
+	text "これは、つぎのリストとおなじ",
+	itext 4 "['f', 'o', 'o', 'b', 'a', 'r']",
+	text "たしかめてみよう",
+	itext 4 "> \"foobar\"",
+	itext 4 "\"foobar\"",
+	itext 4 "> ['f', 'o', 'o', 'b', 'a', 'r']",
+	itext 4 "\"foobar\""
 	]
 
 case1 :: Page
