@@ -13,7 +13,8 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, point1, point2, convert1, dist1, dist2
+	prelude, point1, point2, convert1, dist1, dist2,
+	expression1, expression2, expression3
 	]
 
 title :: Page
@@ -92,4 +93,39 @@ dist2 = pageTitle "点と点との距離" :| [
 	itext 4 "6.000000000000001",
 	itext 4 "> dist (Cartesian 3 5) (Polar 11 (pi / 6))",
 	itext 4 "6.545404750680211"
+	]
+
+expression1 :: Page
+expression1 = pageTitle "値構築演算子" :| [
+	text "「関数」にたいして、中置記法の「演算子」がある",
+	text "おなじように「値構築子」にたいして",
+	itext 4 "「値構築演算子」がある",
+	text "「関数」が小文字ではじまるのにたいして",
+	itext 4 "「値構築子」は大文字ではじまる",
+	text "おなじように「演算子」は':'以外の記号ではじまるが",
+	itext 4 "「値構築演算子」は':'ではじまる記号列だ",
+	itext 2 "         前置      中置",
+	itext 2 "関数     foo       +++",
+	itext 2 "値構築子 Foo       :+++"
+	]
+
+expression2 :: Page
+expression2 = pageTitle "値構築演算子" :| [
+	text "値構築演算子を定義してみる",
+	itext 4 "% vim expression.hs",
+	itext 4 "data Expr",
+	itext 4 "        = Integer :+ Integer",
+	itext 4 "        | Integer :- Integer",
+	itext 4 "        | Integer :* Integer",
+	itext 4 "        deriving Show"
+	]
+
+expression3 :: Page
+expression3 = pageTitle "値構築演算子" :| [
+	text "試してみる",
+	itext 4 "> :load expression.hs",
+	itext 4 "> 123 :+ 456",
+	itext 4 "123 :+ 456",
+	itext 4 "> 111 :* 33",
+	itext 4  "111 :* 33"
 	]
