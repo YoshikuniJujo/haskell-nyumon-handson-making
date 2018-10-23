@@ -17,7 +17,8 @@ someSlide = title :| [
 	function1, function2, function3, sourceFile1,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
-	guard1, eq1, if1, let1, apply1, apply2,
+	guard1, eq1, if1, if2,
+	let1, apply1, apply2,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -251,6 +252,22 @@ if1 = pageTitle "if式" :| [
 	itext 4 "\"good\"",
 	itext 4 "> if 3 >= 15 then \"foo\" else \"bar\"",
 	itext 4 "\"bar\""
+	]
+
+if2 :: Page
+if2 = pageTitle "(&&), (||), not" :| [
+	text "真偽値に対する演算",
+	itext 4 "> True && True",
+	itext 4 "True",
+	itext 4 "> True && False",
+	itext 4 "False",
+	itext 4 "> True || False",
+	itext 4 "True",
+	itext 4 "> False || False",
+	itext 4 "False",
+	itext 4 "> not True",
+	itext 4 "False",
+	text "それぞれ「かつ」「または」「...でない」"
 	]
 
 let1 :: Page
