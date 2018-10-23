@@ -11,3 +11,7 @@ myFilter _ [] = []
 myFilter p (x : xs)
 	| p x = x : myFilter p xs
 	| otherwise = myFilter p xs
+
+(.++) :: [a] -> [a] -> [a]
+(x : xs) .++ ys = x : (xs .++ ys)
+[] .++ ys = ys

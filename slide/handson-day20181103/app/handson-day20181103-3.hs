@@ -15,6 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, length1, length2, map1, map2, map3, map4,
 	filter1, filter2,
+	append1,
 	summary
 	]
 
@@ -140,12 +141,36 @@ filter2 = pageTitle "条件を満たす値だけを取り出す" :| [
 	itext 4 "xが結果のリストに追加されている"
 	]
 
+append1 :: Page
+append1 = pageTitle "リストを結合する" :| [
+	text "リストを結合するには演算子(++)を使う",
+	itext 4 "> \"Hello\" ++ \"World\"",
+	itext 4 "\"HelloWorld\"",
+	text "リストを結合する演算子を自分で定義してみる",
+	itext 4 "% vim list.hs",
+	itext 4 "(.++) :: [a] -> [a] -> [a]",
+	itext 4 "(x : xs) .++ ys = x : (xs .++ ys)",
+	itext 4 "[] .++ ys = ys",
+	text "(x : xs)とysとを結合したリストは",
+	itext 4 "xsとysとを結合したリストの先頭にxを追加したもの",
+	text "空リストとリストysとを結合したリストは",
+	itext 4 "リストysそのもの"
+	]
+append2 :: Page
+append2 = pageTitle "リストを結合する" :| [
+	text "試してみる",
+	itext 4 "> :load list.hs",
+	itext 4 "> \"Hello\" .++ \"World\"",
+	itext 4 "\"HelloWorld\""
+	]
+
 summary :: Page
 summary = pageTitle "まとめ" :| [
 	text "リストをあつかう関数をみた",
 	itext 4 "* myLength",
 	itext 4 "* map",
 	itext 4 "* filter",
+	itext 4 "* 演算子(++)",
 	text "要素の型を問わない関数では",
 	itext 4 "型変数を使って型宣言をする"
 	]
