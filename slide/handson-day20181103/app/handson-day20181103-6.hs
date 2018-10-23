@@ -14,7 +14,7 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
-	do1, do2, do3, do4, do5,
+	do1, do2, do3, do4, do5, do6, do7,
 	stdio1, stdio2, stdio3, fileio1,
 	currentTime1,
 	if1, if2, if3,
@@ -128,6 +128,27 @@ do5 = pageTitle "do記法" :| [
 	itext 4 "hello",
 	itext 4 "(適当に入力してエンター)world",
 	itext 4 "world"
+	]
+
+do6 :: Page
+do6 = pageTitle "do記法" :| [
+	text "do記法のなかで使える予約語letを使った構文がある",
+	itext 4 "% vim do.hs",
+	itext 4 "io2 :: IO ()",
+	itext 4 "io2 = do",
+	itext 4 "        n <- getLine",
+	itext 4 "        let     msg = \"Hello, \" ++ n ++ \"!\"",
+	itext 4 "        putStrLn msg",
+	text "このように、do記法のなかで変数を定義できる"
+	]
+
+do7 :: Page
+do7 = pageTitle "do記法" :| [
+	text "試してみる",
+	itext 4 "> :reload",
+	itext 4 "> io2",
+	itext 4 "(名前を入力)Yoshio",
+	itext 4 "Hello, Yoshio!"
 	]
 
 stdio1 :: Page
