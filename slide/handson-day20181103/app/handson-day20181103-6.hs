@@ -15,7 +15,7 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
 	do1, do2, do3, do4, do5, do6, do7,
-	stdio1, stdio2, stdio3, stdio4,
+	stdio1, stdio2, stdio3, stdio3_5, stdio4,
 	fileio1,
 	currentTime1,
 	if1, if2, if3,
@@ -187,6 +187,14 @@ stdio3 = pageTitle "標準入出力" :| [
 	itext 4 "IO ()",
 	text "つぎにわたすのがString型の値のとき",
 	itext 4 "IO String"
+	]
+
+stdio3_5 :: Page
+stdio3_5 = pageTitle "標準入出力" :| [
+	text "改行を追加しないで出力するには",
+	itext 4 "> putStr \"hello\"",
+	itext 4 "hello>",
+	text "このように、関数putStrを使う"
 	]
 
 stdio4 :: Page
