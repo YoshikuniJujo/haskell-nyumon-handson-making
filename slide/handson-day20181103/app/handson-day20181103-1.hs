@@ -19,6 +19,7 @@ someSlide = title :| [
 	operator1, operator2,
 	guard1, eq1, if1, if2,
 	let1, apply1, apply2,
+	show1,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -302,6 +303,20 @@ apply2 = pageTitle "関数適用演算子" :| [
 	itext 4 "2",
 	itext 4 "> negate $ 3 + 5",
 	itext 4 "-8"
+	]
+
+show1 :: Page
+show1 = pageTitle "関数show" :| [
+	text "対話環境で評価の結果を「表示」してきた",
+	text "「表示」には内部では「文字列化」関数showが",
+	itext 4 "使われている",
+	text "関数showは「表示可能」な値を「文字列」に変換する",
+	itext 4 "> 123",
+	itext 4 "123",
+	itext 4 "> show 123",
+	itext 4 "\"123\"",
+	text "ふたつめでは、showによって表示用の文字列に変換された",
+	itext 4 "文字列がさらに、暗黙のshowで、表示用に変換された"
 	]
 
 recPre :: Page
