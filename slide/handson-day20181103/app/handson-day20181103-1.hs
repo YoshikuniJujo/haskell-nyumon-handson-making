@@ -22,6 +22,7 @@ someSlide = title :| [
 	guard1, eq1, if1, if2,
 	let1, apply1, apply2,
 	show1,
+	undefined1, error1,
 	recPre, rec1, rec2,
 	summary
 	]
@@ -351,6 +352,27 @@ show1 = pageTitle "関数show" :| [
 	itext 4 "\"123\"",
 	text "ふたつめでは、showによって表示用の文字列に変換された",
 	itext 4 "文字列がさらに、暗黙のshowで、表示用に変換された"
+	]
+
+undefined1 :: Page
+undefined1 = pageTitle "undefined" :| [
+	text "未定義を意味する値undefinedがある",
+	text "コードを書いている途中で",
+	itext 8 "「あとで定義しよう」というときに使える",
+	itext 4 "> undefined",
+	itext 4 "*** Exception: Prelude.undefined",
+	itext 4 "...",
+	text "値undefinedを評価しようとすると例外が発生する"
+	]
+
+error1 :: Page
+error1 = pageTitle "error" :| [
+	text "メッセージを指定して例外を発生させたいときもある",
+	itext 4 "> error \"Oh, my god!\"",
+	itext 4 "*** Exception: Oh, my god!",
+	itext 4 "...",
+	text "なんらかの理由で定義できない値について",
+	itext 4 "説明つきのエラーを発生させるのに使える"
 	]
 
 recPre :: Page
