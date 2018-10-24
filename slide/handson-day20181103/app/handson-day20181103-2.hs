@@ -55,6 +55,7 @@ maybe1 = pageTitle "Maybe値" :| [
 	itext 4 "safeDiv _ 0 = Nothing",
 	itext 4 "safeDiv a b = Just (a `div` b)",
 	text "'_'(アンダースコア)は、引数を使用しないときに使う",
+	itext 4 "「ワイルドカード」と呼ぶ",
 	text "関数divは整数の除算を行う",
 	itext 4 "``(バッククォート)でかこむと関数は演算子になる",
 	text "除数が0のとき結果はない(Nothing)",
