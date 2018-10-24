@@ -15,7 +15,8 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude,
 	int1,
-	random1, random2, random3
+	random1, random2, random3,
+	janken1
 	]
 
 title :: Page
@@ -86,4 +87,15 @@ random3 = pageTitle "型クラスRandom" :| [
 	itext 4 "関数nextによって、Int型の乱数値と",
 	itext 4 "新しい「乱数の種(g型の値)」とが生成される",
 	itext 2 "ということ"
+	]
+
+janken1 :: Page
+janken1 = pageTitle "じゃんけん型" :| [
+	text "じゃんけん型を定義する",
+	itext 4 "% vim janken.hs",
+	itext 4 "import System.Random",
+	itext 4 "",
+	itext 4 "data Janken = Rock | Paper | Scissors",
+	itext 4 "        deriving Show",
+	text "じゃんけん型を型クラスRandomのインスタンスにする"
 	]
