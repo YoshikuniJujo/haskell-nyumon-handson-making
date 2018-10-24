@@ -16,7 +16,8 @@ someSlide = title :| [
 	prelude,
 	int1,
 	random1, random2, random3,
-	janken1, janken2, janken3
+	janken1, janken2, janken3,
+	hFlush1, hFlush2, hFlush3, hFlush4, hFlush5, hFlush6
 	]
 
 title :: Page
@@ -128,4 +129,78 @@ janken3 = pageTitle "じゃんけん型" :| [
 	itext 4 "Scissors",
 	itext 4 "> randomIO :: IO Janken",
 	itext 4 "Rock"
+	]
+
+hFlush1 :: Page
+hFlush1 = pageTitle "バッファリング" :| [
+	text "標準入出力はバッファリングされている",
+	text "標準入出力のバッファリングのモードを表示する",
+	itext 4 "% vim buffer.hs",
+	itext 4 "import System.IO",
+	itext 4 "",
+	itext 4 "main :: IO ()",
+	itext 4 "main = do",
+	itext 4 "        bi <- hGetBuffering stdin",
+	itext 4 "        bo <- hGetBuffering stdout",
+	itext 4 "        print bi",
+	itext 4 "        print bo"
+	]
+
+hFlush2 :: Page
+hFlush2 = pageTitle "バッファリング" :| [
+	text "コンパイル・実行",
+	itext 4 "% stack ghc -- buffer.hs -o buffer",
+	itext 4 "./buffer",
+	itext 4 "LineBuffering",
+	itext 4 "LineBuffering",
+	text "標準入力、標準出力ともにLineBuffering",
+	text "つまり、改行が入力(出力)されるまで",
+	itext 4 "入力(出力)はバッファリングされる"
+	]
+
+hFlush3 :: Page
+hFlush3 = pageTitle "hFlush" :| [
+	text "標準出力への出力は改行の出力まで、おくらされる",
+	text "これは、たとえば「質問」の出力のあとで",
+	itext 4 "改行したくないようなとき、こまる",
+	itext 2 "% vim yesno.hs",
+	itext 2 "main :: IO ()",
+	itext 2 "main = do",
+	itext 2 "        putStr \"どうする?(Y/N): \"",
+	itext 2 "        a <- getLine",
+	itext 2 "        putStrLn $ \"Your answer is \" ++ a ++ \".\""
+	]
+
+hFlush4 :: Page
+hFlush4 = pageTitle "hFlush" :| [
+	text "コンパイル・実行",
+	itext 4 "% stack ghc -- yesno.hs -o yesno",
+	itext 4 "./yesno",
+	itext 4 "(入力)foo",
+	itext 4 "どうする?(Y/N): Your answer is foo.",
+	text "質問が表示されるまえに、入力が必要になる"
+	]
+
+hFlush5 :: Page
+hFlush5 = pageTitle "hFlush" :| [
+	text "バッファをフラッシュする必要がある",
+	text "yesno.hsの先頭にimport文を追加",
+	itext 4 "% vim yesno.hs",
+	itext 4 "import System.IO",
+	text "質問文の表示のあとにhFlushを追加",
+	itext 4 "% vim yesno.hs",
+	itext 4 "...",
+	itext 4 "        putStr \"どうする?(Y/N): \"",
+	itext 4 "        hFlush stdout",
+	itext 4 "..."
+	]
+
+hFlush6 :: Page
+hFlush6 = pageTitle "hFlush" :| [
+	text "コンパイル・実行",
+	itext 4 "% stack ghc -- yesno.hs -o yesno",
+	itext 4 "./yesno",
+	itext 4 "どうする?(Y/N): (入力)Y",
+	itext 4 "Your answer is Y.",
+	text "hFlushをすることで、改行を待たずに表示される"
 	]
