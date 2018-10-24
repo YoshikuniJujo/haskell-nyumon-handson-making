@@ -16,7 +16,7 @@ someSlide = title :| [
 	prelude,
 	int1,
 	random1, random2, random3,
-	janken1
+	janken1, janken2, janken3
 	]
 
 title :: Page
@@ -98,4 +98,34 @@ janken1 = pageTitle "じゃんけん型" :| [
 	itext 4 "data Janken = Rock | Paper | Scissors",
 	itext 4 "        deriving Show",
 	text "じゃんけん型を型クラスRandomのインスタンスにする"
+	]
+
+janken2 :: Page
+janken2 = pageTitle "じゃんけん型" :| [
+	itext 2 "% vim janken.hs",
+	itext 2 "instance Random Janken where",
+	itext 2 "        randomR = undefined",
+	itext 2 "        random g = let (n, g') = next g in",
+	itext 2 "                0 -> (Rock, g')",
+	itext 2 "                1 -> (Paper, g')",
+	itext 2 "                2 -> (Scissors, g')",
+	itext 2 "                _ -> error \"never occur\"",
+	text "関数randomRは「範囲を指定して乱数値を得る」関数",
+	text "いまは使わないので、とりあえずundefinedにしておく",
+	text "関数randomは「乱数の種」から、乱数値と新しい種をつくる",
+	text "関数nextでInt型の値をつくり、それを3通りの値に変換"
+	]
+
+janken3 :: Page
+janken3 = pageTitle "じゃんけん型" :| [
+	text "試してみる",
+	itext 4 "> :load janken.hs",
+	itext 4 "> randomIO :: IO Janken",
+	itext 4 "Scissors",
+	itext 4 "> randomIO :: IO Janken",
+	itext 4 "Paper",
+	itext 4 "> randomIO :: IO Janken",
+	itext 4 "Scissors",
+	itext 4 "> randomIO :: IO Janken",
+	itext 4 "Rock"
 	]
