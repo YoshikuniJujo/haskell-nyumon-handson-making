@@ -108,6 +108,16 @@ executables:
     dependencies:
     - handson-day20181103
     - xturtle-slide
+  handson-day20181103-8:
+    main:                handson-day20181103-8.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - handson-day20181103
+    - xturtle-slide
 
 tests:
   handson-day20181103-test:
