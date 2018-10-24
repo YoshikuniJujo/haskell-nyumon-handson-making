@@ -14,7 +14,9 @@ main = runSlide version someSlide
 someSlide :: Slide
 someSlide = title :| [
 	prelude, value1, arithmetic1, it1, bind1,
-	function1, function2, function3, sourceFile1,
+	function1, function2, function3,
+	sourceFile1, sourceFile2,
+	typeAnnotation1, typeAnnotation2,
 	lambda1, lambda2, lambda3,
 	operator1, operator2,
 	guard1, eq1, if1, if2,
@@ -138,7 +140,7 @@ function3 = pageTitle "関数の定義" :| [
 	]
 
 sourceFile1 :: Page
-sourceFile1 = pageTitle "ファイルから読み込み" :| [
+sourceFile1 = pageTitle "ファイルから読み込む" :| [
 	text "関数をファイルから読み込むこともできる",
 	itext 4 "% vim simpleFun.hs",
 	itext 4 "g x y = x + y",
@@ -150,6 +152,38 @@ sourceFile1 = pageTitle "ファイルから読み込み" :| [
 	itext 4 "% vim simpleFun.hs",
 	itext 4 "g :: Integer -> Integer -> Integer",
 	itext 4 "g x y = x + y"
+	]
+
+sourceFile2 :: Page
+sourceFile2 = pageTitle "ファイルから読み込む" :| [
+	text "型宣言は、つぎのようになる",
+	itext 4 "変数 :: 型",
+	text "また、型IntegerはHaskellでの標準的な多倍長整数型",
+	text "関数の型は、つぎのように表される",
+	itext 4 "引数1の型 -> 引数2の型 -> ... -> 返り値の型"
+	]
+
+typeAnnotation1 :: Page
+typeAnnotation1 = pageTitle "型注釈" :| [
+	text "型宣言は「変数の型」を宣言する",
+	text "よって、変数を束縛しない「値」の型は宣言できない",
+	text "「値(式)」の型を特定したいときには「型注釈」を使う",
+	text "ちゃんと理解するには「型クラス」を学ぶ必要があるが",
+	itext 4 "Haskellでの数値リテラルは多相的だ"
+	]
+
+typeAnnotation2 :: Page
+typeAnnotation2 = pageTitle "型注釈" :| [
+	text "数型リテラルの型を特定するには、型注釈で型を指定する",
+	itext 4 "> 123 :: Integer",
+	itext 4 "123",
+	itext 4 "> :type it",
+	itext 4 "it :: Integer",
+	itext 4 "> 123 :: Double",
+	itext 4 "123.0",
+	itext 4 "> :type it",
+	itext 4 "it :: Double",
+	text "型Doubleは代表的な実数型"
 	]
 
 lambda1 :: Page
