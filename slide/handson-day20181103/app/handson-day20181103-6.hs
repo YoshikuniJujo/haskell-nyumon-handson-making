@@ -15,7 +15,8 @@ someSlide :: Slide
 someSlide = title :| [
 	prelude, procedure1, procedure2,
 	do1, do2, do3, do4, do5, do6, do7,
-	stdio1, stdio2, stdio3, fileio1,
+	stdio1, stdio2, stdio3, stdio4,
+	fileio1,
 	currentTime1,
 	if1, if2, if3,
 	iteration1, iteration2,
@@ -186,6 +187,17 @@ stdio3 = pageTitle "標準入出力" :| [
 	itext 4 "IO ()",
 	text "つぎにわたすのがString型の値のとき",
 	itext 4 "IO String"
+	]
+
+stdio4 :: Page
+stdio4 = pageTitle "標準入出力" :| [
+	text "文字列以外の値を表示するには関数printを使う",
+	itext 4 "> print 123",
+	itext 4 "123",
+	text "関数printは、関数showによって文字列化したものを",
+	itext 4 "関数putStrLnによって表示するのとおなじ",
+	itext 4 "> putStrLn (show 123)",
+	itext 4 "123"
 	]
 
 fileio1 :: Page
