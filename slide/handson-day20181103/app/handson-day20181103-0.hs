@@ -265,5 +265,11 @@ aboutHandson1 = pageTitle "このハンズオンについて" :| [
 
 aboutHandson2 :: Page
 aboutHandson2 = pageTitle "このハンズオンについて" :| [
-	text ""
+	text "時間に限りがあるので",
+	itext 4 "すべてを説明することはできない",
+	text "できるだけ理解しやすいようにと考えた",
+	text "自分でちょっとしたコードを書けるように",
+	text "Haskellの魅力は十分にはつたえられないかも",
+	text "Haskellは難しいことをやるときに",
+	itext 4 "より力を発揮する"
 	]
