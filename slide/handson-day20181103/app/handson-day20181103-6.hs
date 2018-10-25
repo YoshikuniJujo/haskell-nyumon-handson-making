@@ -221,8 +221,8 @@ fileio1 = pageTitle "ファイル入出力" :| [
 
 currentTime1 :: Page
 currentTime1 = pageTitle "現在時刻" :| [
-	text "現在の時刻を手得する",
-	text "時刻は入力値として手得される",
+	text "現在の時刻を取得する",
+	text "時刻は入力値として取得される",
 	itext 4 "> :module Data.Time",
 	itext 4 "> getCurrentTime",
 	itext 4 "2018-10-15 05:54:10.471924992 UTC",
