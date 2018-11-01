@@ -164,7 +164,7 @@ case1 :: Page
 case1 = pageTitle "case式" :| [
 	text "パターンマッチを関数定義ではなく",
 	itext 8 "式のなかに書くにはcase式を使う",
-	text "% vim case.hs",
+	itext 4 "% vim case.hs",
 	itext 4 "import Data.Char",
 	itext 4 "",
 	itext 4 "checkAnswer :: Char -> Maybe Bool",

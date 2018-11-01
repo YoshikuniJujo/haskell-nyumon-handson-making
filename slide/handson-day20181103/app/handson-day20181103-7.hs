@@ -30,7 +30,10 @@ prelude = pageTitle "はじめに" :| [
 	itext 4 "そのために必要な追加の知識をここで学ぶ",
 	text "まずは型Intを紹介する",
 	text "つぎに、Haskellにおいて、かつては、標準的だった",
-	itext 4 "乱数生成ライブラリについて学ぶ"
+	itext 4 "乱数生成ライブラリについて学ぶ",
+	text "最後に、標準入出力はデフォルトで",
+	itext 4 "バッファリングされているので",
+	itext 4 "内容を即座に入(出)力する方法を学ぶ"
 	]
 
 int1 :: Page
@@ -51,8 +54,8 @@ random1 :: Page
 random1 = pageTitle "乱数生成" :| [
 	text "かつて標準的だったモジュールSystem.Randomは",
 	itext 4 "パッケージrandomに含まれている",
-	text "(このあたり、あとで確認する)",
 	itext 4 "> :module System.Random",
+	text "(うまくいかなかったら% stack instann randomとする)",
 	itext 4 "> randomIO :: IO Integer",
 	itext 4 "7070170094128852650",
 	itext 4 "> randomIO :: IO Double",
@@ -107,10 +110,11 @@ janken2 = pageTitle "じゃんけん型" :| [
 	itext 2 "instance Random Janken where",
 	itext 2 "        randomR = undefined",
 	itext 2 "        random g = let (n, g') = next g in",
-	itext 2 "                0 -> (Rock, g')",
-	itext 2 "                1 -> (Paper, g')",
-	itext 2 "                2 -> (Scissors, g')",
-	itext 2 "                _ -> error \"never occur\"",
+	itext 2 "                case n `mod` 3 of",
+	itext 2 "                        0 -> (Rock, g')",
+	itext 2 "                        1 -> (Paper, g')",
+	itext 2 "                        2 -> (Scissors, g')",
+	itext 2 "                        _ -> error \"never occur\"",
 	text "関数randomRは「範囲を指定して乱数値を得る」関数",
 	text "いまは使わないので、とりあえずundefinedにしておく",
 	text "関数randomは「乱数の種」から、乱数値と新しい種をつくる",

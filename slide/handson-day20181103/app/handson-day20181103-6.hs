@@ -183,7 +183,7 @@ stdio3 = pageTitle "標準入出力" :| [
 	itext 4 "putStrLn :: String -> IO ()",
 	itext 4 "> :type getLine",
 	itext 4 "getLine :: IO String",
-	text "つぎにわたす値がないとき、入出の型は",
+	text "つぎにわたす値がないとき、入出力の型は",
 	itext 4 "IO ()",
 	text "つぎにわたすのがString型の値のとき",
 	itext 4 "IO String"
