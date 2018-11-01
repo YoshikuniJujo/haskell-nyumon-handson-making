@@ -13,7 +13,7 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude,
+	prelude, qiita,
 	selfIntroduction1, selfIntroduction2, selfIntroduction3,
 	selfIntroduction4, selfIntroduction5, selfIntroduction6,
 	selfIntroduction7,
@@ -33,6 +33,13 @@ prelude = pageTitle "ごあいさつ" :| [
 	writeImage 0.3 0.25 170 210 "image/cover.png",
 	text "「Haskell - 教養としての関数型プログラミング」の",
 	itext 20 "著者です"
+	]
+
+qiita :: Page
+qiita = pageTitle "オンライン" :| [
+	text "今日の内容は以下のURLで、オンラインで閲覧可能です",
+	itext 4 "https://bit.ly/2Rr5tyO",
+	itext 4 "(に、あーる、あーる、ご、てぃー、わい、おー)"
 	]
 
 selfIntroduction1 :: Page
