@@ -55,7 +55,7 @@ random1 = pageTitle "乱数生成" :| [
 	text "かつて標準的だったモジュールSystem.Randomは",
 	itext 4 "パッケージrandomに含まれている",
 	itext 4 "> :module System.Random",
-	text "(うまくいかなかったら% stack instann randomとする)",
+	text "(うまくいかなかったら% stack install randomとする)",
 	itext 4 "> randomIO :: IO Integer",
 	itext 4 "7070170094128852650",
 	itext 4 "> randomIO :: IO Double",

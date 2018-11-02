@@ -106,7 +106,7 @@ poly1 = pageTitle "多相関数" :| [
 	itext 4 "        | otherwise = x : growing (grow x)",
 	text "ある値から成熟するまでの値をリストにする",
 	text "growing xは",
-	itext 4 "先頭がxで残りがgrowing (grow x)であるリストに",
+	itext 2 "先頭がxで残りがgrowing (grow x)であるリストになる",
 	text "xのつぎからはじまるリストの先頭にxを追加している"
 	]
 

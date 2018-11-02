@@ -21,7 +21,7 @@ someSlide = title :| [
 	aboutHaskell1, aboutHaskell2, aboutHaskell3, aboutHaskell4,
 	aboutHaskell5, aboutHaskell6, aboutHaskell7, aboutHaskell8,
 	aboutHaskell9,
-	aboutHandson1, aboutHandson2
+	aboutHandson1, aboutHandson2, aboutHandson3, aboutHandson4
 	]
 
 title :: Page
@@ -279,4 +279,33 @@ aboutHandson2 = pageTitle "このハンズオンについて" :| [
 	text "Haskellの魅力は十分にはつたえられないかも",
 	text "Haskellは難しいことをやるときに",
 	itext 4 "より力を発揮する"
+	]
+
+aboutHandson3 :: Page
+aboutHandson3 = pageTitle "注意点" :| [
+	text "個人的なポリシーとして字下げはタブ文字を使う",
+	text "タブは8タブとする",
+	text "Haskellのコミュニティでは「タブは使わない」という",
+	itext 4 "エチケットがあるようだ",
+	text "僕は個人的にタブ(8タブ)を使うし",
+	itext 4 "仲間が増えればいいとも思うけど",
+	itext 4 "Haskellerとしては異端であることを",
+	itext 4 "おつたえしておく必要がある"
+	]
+
+aboutHandson4 :: Page
+aboutHandson4 = pageTitle "凡例" :| [
+	text "シェルへの入力を、つぎのように示す",
+	itext 4 "% command",
+	text "対話環境への入力を、つぎのように示す",
+	itext 4 "> foo bar",
+	itext 4 "baz",
+	text "これは対話環境にfoo barを入力してエンターキーを押すと",
+	itext 4 "結果としてbazが表示されるということ",
+	text "ファイルへの書き込みを、つぎのように示す",
+	itext 4 "% vim file_name.hs",
+	itext 4 "I love Haskell!",
+	text "これはファイルfile_name.hsにI love Haskellを",
+	itext 4 "(新規に、または追加で)書き込むということ",
+	text "エディタを代表してVimで示している"
 	]

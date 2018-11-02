@@ -84,9 +84,7 @@ maybe3 = pageTitle "Maybe値" :| [
 	text "Nothingや(Just a)によってMaybe値をパターンマッチ",
 	text "パターンマッチはうえから順に試されていく",
 	text "マッチしたパターンに含まれる変数が",
-	itext 4 "なかみの値に束縛される",
-	text "「変数が値に束縛される」は",
-	itext 4 "「変数に値を代入する」を関数型的な言いかた"
+	itext 4 "なかみの値に束縛される"
 	]
 
 maybe4 :: Page

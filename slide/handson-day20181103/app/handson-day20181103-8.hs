@@ -26,7 +26,7 @@ title = writeTitle "Haskell入門ハンズオン! #4" "8. プロジェクトの�
 prelude :: Page
 prelude = pageTitle "はじめに" :| [
 	text "プログラミングの例を紹介する",
-	text "簡単な足し算、引き算、かけ算のクイズゲームの例",
+	text "簡単なたし算、ひき算、かけ算のクイズゲームの例",
 	text "stackを使って、新規のプロジェクトとして作成する"
 	]
 

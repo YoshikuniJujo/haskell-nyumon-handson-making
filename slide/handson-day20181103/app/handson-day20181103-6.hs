@@ -173,7 +173,9 @@ stdio2 = pageTitle "標準入出力" :| [
 	text "関数putStrLnは文字列を引数にとり",
 	itext 4 "その文字列を標準出力に出力する",
 	text "入出力getLineは標準入力から1行入力し",
-	itext 4 "それを「つぎの」入出力にわたす"
+	itext 4 "それを「つぎの」入出力にわたす",
+	text "ここでは「対話環境」にわたされて",
+	itext 4 "対話環境によってshowされて表示されている"
 	]
 
 stdio3 :: Page
@@ -205,6 +207,10 @@ stdio4 = pageTitle "標準入出力" :| [
 	text "関数printは、関数showによって文字列化したものを",
 	itext 4 "関数putStrLnによって表示するのとおなじ",
 	itext 4 "> putStrLn (show 123)",
+	itext 4 "123",
+	text "ちなみに、対話環境は入出力でない値に対しては",
+	itext 4 "その値を引数としてprintを実行している",
+	itext 4 "> 123",
 	itext 4 "123"
 	]
 

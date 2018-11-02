@@ -252,7 +252,7 @@ guard1 = pageTitle "ガード" :| [
 	text "関数を定義するときなどに",
 	itext 4 "条件によって結果を変えることができる",
 	text "ガードという構文が使える",
-	itext 4 "%vim guard.hs",
+	itext 4 "% vim guard.hs",
 	itext 4 "div2 :: Integer -> Integer",
 	itext 4 "div2 n  | even n = n `div` 2",
 	itext 4 "        | otherwise = n",
