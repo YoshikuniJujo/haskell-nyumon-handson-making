@@ -13,7 +13,7 @@ main = runSlide version someSlide
 
 someSlide :: Slide
 someSlide = title :| [
-	prelude, -- qiita,
+	prelude, qiita,
 	selfIntroduction1, selfIntroduction2, selfIntroduction3,
 	selfIntroduction4, selfIntroduction5, selfIntroduction6,
 	selfIntroduction7,
