@@ -62,7 +62,7 @@ prelude3 = pageTitle "ディレクトリの用意" :| [
 	itext 4 "https://bit.ly/2RUIS2E",
 	itext 4 "(に、あーる、ゆー、あい、えす、に、いー)",
 	text "それぞれのOSのやりかたで解凍する",
-	itext 4 "% unzip haskell-nyumon-handson-work-master.git",
+	itext 4 "% unzip haskell-nyumon-handson-work-master.zip",
 	text "それぞれのOSのやりかたで名前を変える",
 	itext 4 "% mv haskell-nyumon-handson-work-master \\",
 	itext 8 "haskell-nyumon-handson-work"
